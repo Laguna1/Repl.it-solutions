@@ -1,4 +1,4 @@
-#teacher`s solution
+# teacher`s solution
 def graph(hash_graph)
     # write your code here
     next_node = 0
@@ -20,7 +20,6 @@ end
     4 => [1, 5], 
     5 => [4, 2]
   }
-  
+
   p graph(hash)
   # => [0, 2, 5, 4]
-  
