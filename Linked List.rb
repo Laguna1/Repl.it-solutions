@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Start with your code from last challenge.
 class Node
   attr_accessor :value, :next_node
@@ -26,7 +28,7 @@ class LinkedList
 
   def get(index)
     # your code here
-    if index < 0
+    if index.negative?
       nil
     else
       node = @head
@@ -54,7 +56,7 @@ class LinkedList
   end
 
   def at(index)
-    index += @size if index < 0
+    index += @size if index.negative?
     counter = 0
     nodes { |node| return node if counter == index; counter += 1 }
 
@@ -67,11 +69,11 @@ class LinkedList
   end
 
   def remove(index)
-    if index < 0
+    if index.negative?
       nil
     else
       node = @head
-      if index == 0
+      if index.zero?
         @head = node.next_node
       else
         (index - 1).times { node = node.next_node }
@@ -125,7 +127,7 @@ class LinkedList
     if @head.nil?
       @head = new_node
       @tail = new_node
-    elsif index == 0
+    elsif index.zero?
       new_node.next_node = @head
       @head = new_node
     else
@@ -143,7 +145,7 @@ class LinkedList
   end
 
   def remove(index)
-    if index == 0
+    if index.zero?
       value = @head.value
       @head = @head&.next_node
       return value
@@ -163,7 +165,7 @@ class LinkedList
   def get_node(index)
     node = @head
 
-    while index > 0 && node
+    while index.positive? && node
       node = node.next_node
       index -= 1
     end

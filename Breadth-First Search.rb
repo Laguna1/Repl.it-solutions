@@ -1,15 +1,15 @@
-stack = [""]
-  until stack.empty?
-  
-    str = stack.pop
+# frozen_string_literal: true
 
-  
-    next if str.length > 3
+stack = ['']
+until stack.empty?
 
- 
-    patterns << str unless str.empty?
+  str = stack.pop
 
-    ['A', 'B', 'C'].each do |rune|
-      stack << str+rune
-    end
+  next if str.length > 3
+
+  patterns << str unless str.empty?
+
+  %w[A B C].each do |rune|
+    stack << str + rune
   end
+end
